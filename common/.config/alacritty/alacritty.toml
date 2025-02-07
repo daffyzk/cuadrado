@@ -1,0 +1,18 @@
+[window]
+opacity = 0.9
+
+[font]
+normal = { family = "Comic Code", style = "Regular" }
+bold = { family = "Comic Code", style = "Bold" }
+italic = { family = "Comic Code", style = "Italic" }
+bold_italic = { family = "Comic Code", style = "BoldItalic" }
+size = 16.0
+
+
+[colors]
+cursor = { text="#ffffff", cursor = "#ffffff"}
+
+[colors.primary] 
+foreground = "#ffffff"
+background = "#181818"
+
