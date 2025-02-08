@@ -1,7 +1,7 @@
 
 # term
-set XDG_CONFIG_HOME "/etc/skel/"
-set TERM "alacritty"
+set -Ux XDG_CONFIG_HOME "/etc/skel/"
+set -Ux TERM "alacritty"
 
 
 
