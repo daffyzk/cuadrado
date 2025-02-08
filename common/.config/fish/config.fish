@@ -1,6 +1,6 @@
 
 # term
-set TERM="alacritty"
+set TERM "alacritty"
 
 # aliases
 alias ll="ls -a"
