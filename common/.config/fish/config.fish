@@ -1,6 +1,9 @@
 
 # term
+set XDG_CONFIG_HOME "/etc/skel/"
 set TERM "alacritty"
+
+
 
 # aliases
 alias ll="ls -a"
