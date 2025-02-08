@@ -1,4 +1,7 @@
 
+# term
+set TERM="alacritty"
+
 # aliases
 alias ll="ls -a"
 alias nivm="nvim"
