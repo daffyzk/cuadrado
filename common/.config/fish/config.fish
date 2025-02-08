@@ -26,9 +26,10 @@ fish_add_path $HOME/go/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/solana/install/active_release/bin
 
-
 # cool cairo config memes
-fish_add_path $HOME/.dojo/bin
+
+fish_add_path $HOME/.starkli/bin
+# fish_add_path $HOME/.dojo/bin
 
 # ASDF memes
 
@@ -42,10 +43,5 @@ if not contains $_asdf_shims $PATH
 	set -gx --prepend PATH $_asdf_shims
 end
 set --erase _asdf_shims
-
-
-# source ~/.asdf/asdf.fish
-
-# . "$HOME/.starkli/env-fish"
 
 fish_add_path $HOME/.local/bin
