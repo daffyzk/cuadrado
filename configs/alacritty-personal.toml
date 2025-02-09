@@ -1,0 +1,9 @@
+# personal config 
+
+[colors]
+cursor = { text="#ffffff", cursor = "#ffffff"}
+
+[colors.primary] 
+foreground = "#baffba"
+background = "#072707"
+
