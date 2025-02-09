@@ -3,8 +3,6 @@
 # set -Ux XDG_CONFIG_HOME "/etc/skel/"
 set -Ux TERM "alacritty"
 
-
-
 # aliases
 alias ll="ls -a"
 alias nivm="nvim"
@@ -31,20 +29,20 @@ fish_add_path $HOME/.local/share/solana/install/active_release/bin
 
 # cool cairo config memes
 
-fish_add_path $HOME/.starkli/bin
+# fish_add_path $HOME/.starkli/bin
 # fish_add_path $HOME/.dojo/bin
 
 # ASDF memes
 
-if test -z $ASDF_DATA_DIR
-	set _asdf_shims "$HOME/.asdf/shims"
-else
-	set _asdf_shims "$ASDF_DATA_DIR/shims"
-end
-
-if not contains $_asdf_shims $PATH
-	set -gx --prepend PATH $_asdf_shims
-end
-set --erase _asdf_shims
+#if test -z $ASDF_DATA_DIR
+#	set _asdf_shims "$HOME/.asdf/shims"
+#else
+#	set _asdf_shims "$ASDF_DATA_DIR/shims"
+#end
+#
+#if not contains $_asdf_shims $PATH
+#	set -gx --prepend PATH $_asdf_shims
+#end
+#set --erase _asdf_shims
 
 fish_add_path $HOME/.local/bin
