@@ -1,4 +1,5 @@
 #! /bin/sh
 
-stow -vSt ~ --adopt personal
+stow -vSt ~ --adopt work
 stow -vSt ~ --adopt common
+
