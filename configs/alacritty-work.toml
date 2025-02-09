@@ -4,6 +4,6 @@
 cursor = { text="#ffffff", cursor = "#ffffff"}
 
 [colors.primary] 
-foreground = "#ffffff"
-background = "#181818"
+foreground = "#ffbafe"
+background = "#170717"
 

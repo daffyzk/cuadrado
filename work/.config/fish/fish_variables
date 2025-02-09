@@ -1,6 +1,7 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export LS_COLORS:di\x3d38\x3b2\x3b0\x3b204\x3b139\x3aex\x3d38\x3b2\x3b251\x3b0\x3b255\x3aln\x3d38\x3b2\x3b0\x3b204\x3b255\x3aow\x3d48\x3b2\x3b255\x3b255\x3b255\x3b38\x3b2\x3b0\x3b0\x3b204
+SETUVAR --export TERM:alacritty
 SETUVAR __fish_initialized:3400
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
