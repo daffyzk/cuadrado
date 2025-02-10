@@ -10,7 +10,7 @@ cat configs/alacritty-personal.toml >> personal/.config/alacritty/alacritty.toml
 
 # create personal wezterm config
 cat common/wezterm/wezterm.lua > personal/.config/wezterm/wezterm.lua
-# cat configs/wezterm-personal.lua >> personal/.config/wezterm/wezterm.lua
+cat configs/wezterm-personal.lua >> personal/.config/wezterm/wezterm.lua
 
 # stow personal
 stow -vSt ~ --adopt personal
