@@ -2,7 +2,8 @@
 # term
 set -Ux TERM "alacritty"
 
-
+# setting new tempdir because it doesn't have enough space to build starknet-devnet lmao
+set -Ux TMPDIR "/home/user/.tmp"
 
 # aliases
 alias ll="ls -a"
@@ -26,7 +27,7 @@ set -g fish_color_normal "#ff87d9"
 # env variables
 fish_add_path $HOME/go/bin
 fish_add_path $HOME/.cargo/bin
-fish_add_path $HOME/.local/share/solana/install/active_release/bin
+#fish_add_path $HOME/.local/share/solana/install/active_release/bin
 
 # cool cairo config memes
 
