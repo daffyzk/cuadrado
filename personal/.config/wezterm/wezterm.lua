@@ -6,7 +6,6 @@ config.font_size = 16
 config.font = wezterm.font('Comic Code')
 config.enable_tab_bar = false
 
-
 --- personal config
 config.colors = {
 
@@ -17,12 +16,13 @@ config.colors = {
     background = '#072707',
 
 }
+
 config.background = {
     {
         source = {
             File = '/home/user/repos/cuadrado/images/cute-cat-in-field.jpg'
         },
-        hsb = { brightness = 0.2 }
+        hsb = { brightness = 0.1 }
     }
 }
 

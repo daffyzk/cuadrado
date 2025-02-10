@@ -14,7 +14,7 @@ config.background = {
         source = {
             File = '/home/user/repos/cuadrado/images/cute-cat-in-field.jpg'
         },
-        hsb = { brightness = 0.2 }
+        hsb = { brightness = 0.1 }
     }
 }
 
