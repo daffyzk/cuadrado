@@ -9,13 +9,13 @@ config.colors = {
     background = '#072707',
 
 }
--- config.background = {
---     {
---         source = {
---             File = 'path'
---         },
---         hsb = { brightness = 0.2 }
---     }
--- }
+config.background = {
+    {
+        source = {
+            File = '/home/user/repos/cuadrado/images/cute-cat-in-field.jpg'
+        },
+        hsb = { brightness = 0.2 }
+    }
+}
 
 return config
