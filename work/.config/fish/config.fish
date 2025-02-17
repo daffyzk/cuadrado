@@ -11,6 +11,8 @@ alias nivm="nvim"
 alias v="nvim"
 alias sl="sl -e"
 
+alias qubes-run-terminal="wezterm"
+
 # colors
 set -x GIT_CONFIG_COUNT 3
 set -x GIT_CONFIG_KEY_0 "color.branch.current"
@@ -48,3 +50,6 @@ end
 set --erase _asdf_shims
 
 fish_add_path $HOME/.local/bin
+. "/home/user/.starkli/env-fish"
+
+export PATH="$PATH:/home/user/.local/bin"
