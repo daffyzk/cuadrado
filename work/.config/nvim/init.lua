@@ -104,8 +104,8 @@ local config = {
 vim.cmd("colorscheme wildcharm")
 
 -- line num color
-vim.api.nvim_set_hl(0, 'LineNr', { fg = '#ffbafe'})
-
+vim.api.nvim_set_hl(0, 'LineNr', { fg = '#a94ec2'})
+-- #ffbafe
 -- transparency
 vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
 vim.api.nvim_set_hl(0, "NonText", {bg = "none"})
