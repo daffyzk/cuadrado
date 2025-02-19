@@ -10,7 +10,7 @@ config.enable_tab_bar = false
 config.colors = {
 
     cursor_bg = '#ffffff',
-    cursor_fg = '#ffffff',
+    cursor_fg = '#000000',
 
     foreground = '#ffbafe',
     background = '#170717',

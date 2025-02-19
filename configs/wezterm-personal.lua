@@ -2,7 +2,7 @@
 config.colors = {
 
     cursor_bg = '#ffffff',
-    cursor_fg = '#ffffff',
+    cursor_fg = '#000000',
 
     foreground = '#baffba',
     background = '#072707',

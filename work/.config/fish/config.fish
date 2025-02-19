@@ -1,6 +1,6 @@
 
 # term
-set -Ux TERM "alacritty"
+set -Ux TERM "wezterm"
 
 # setting new tempdir because it doesn't have enough space to build starknet-devnet lmao
 set -Ux TMPDIR "/home/user/.tmp"
