@@ -12,6 +12,7 @@ alias v="nvim"
 alias sl="sl -e"
 
 alias qubes-run-terminal="wezterm"
+alias devnet100="starknet-devnet --seed 100 --accounts 1"
 
 # colors
 set -x GIT_CONFIG_COUNT 3
