@@ -1,8 +1,10 @@
 -- work config:
 
 -- colors (i like: retrobox, wildcharm, sorbet, ...)
-vim.cmd("colorscheme chill")
-
+-- my own colorscheme: chill
+vim.cmd("colorscheme visual_studio_code")
+vim.cmd("hi Normal guibg=none")
+vim.cmd("hi NonText guibg=none")
 -- lsp langs
 
 require'lspconfig'.cairo_ls.setup(config)

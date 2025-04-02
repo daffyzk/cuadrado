@@ -22,7 +22,7 @@ config.background = {
         source = {
             File = '/home/user/repos/cuadrado/images/cute-baby-cats.jpg'
         },
-        hsb = { brightness = 0.1 }
+        hsb = { brightness = 0.05 }
     }
 }
 

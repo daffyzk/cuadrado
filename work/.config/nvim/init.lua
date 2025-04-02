@@ -33,7 +33,8 @@ local plugins = {
         "MunifTanjim/nui.nvim"
         }
     },
-    {"neovim/nvim-lspconfig"}
+    {"neovim/nvim-lspconfig"},
+    {"askfiy/visual_studio_code"}
 }
 
 local opts = {}
@@ -101,8 +102,10 @@ local config = {
 -- work config:
 
 -- colors (i like: retrobox, wildcharm, sorbet, ...)
-vim.cmd("colorscheme chill")
-
+-- my own colorscheme: chill
+vim.cmd("colorscheme visual_studio_code")
+vim.cmd("hi Normal guibg=none")
+vim.cmd("hi NonText guibg=none")
 -- lsp langs
 
 require'lspconfig'.cairo_ls.setup(config)
