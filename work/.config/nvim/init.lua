@@ -34,6 +34,7 @@ local plugins = {
         }
     },
     {"neovim/nvim-lspconfig"},
+    {"tpope/vim-fugitive"},
     {"askfiy/visual_studio_code"}
 }
 
