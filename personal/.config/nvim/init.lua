@@ -33,7 +33,9 @@ local plugins = {
         "MunifTanjim/nui.nvim"
         }
     },
-    {"neovim/nvim-lspconfig"}
+    {"neovim/nvim-lspconfig"},
+    {"tpope/vim-fugitive"},
+    {"askfiy/visual_studio_code"}
 }
 
 local opts = {}
