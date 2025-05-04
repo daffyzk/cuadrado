@@ -10,6 +10,8 @@ alias ll="ls -a"
 alias nivm="nvim"
 alias v="nvim"
 alias sl="sl -e"
+alias jkb="pnpm build"
+alias jks="pnpm start"
 
 alias qubes-run-terminal="wezterm"
 alias devnet100="starknet-devnet --seed 100 --accounts 1"

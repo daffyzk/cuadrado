@@ -1,9 +1,9 @@
 -- random settings
 
-vim.cmd("set expandtab")
-vim.cmd("set tabstop=4")
-vim.cmd("set softtabstop=4")
-vim.cmd("set shiftwidth=4")
+vim.opt.expandtab = true
+vim.opt.tabstop = 4
+vim.opt.softtabstop = 4
+vim.opt.shiftwidth = 4
 vim.wo.number = true
 vim.wo.relativenumber = true
 vim.g.mapleader = " "
@@ -90,7 +90,10 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setqflist)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
     vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
-    vim.keymap.set('n', 'gd', vim.lsp.buf.definition, bufopts)
+    vim.keymap.set('n', 'gd', function() 
+        vim.cmd('tab split')
+        vim.lsp.buf.definition()
+    end, bufopts)
     -- -- vim.keymap.set('n', '', vim.diagnostic.open_float)
     -- client.server_capabilities.semanticTokensProvider = nil
 end  
@@ -99,6 +102,16 @@ local config = {
     on_attach = on_attach,
     handlers = handlers,
 }
+
+vim.api.nvim_create_autocmd("FileType", {
+    pattern = "typescript",
+    callback = function()
+        vim.opt_local.tabstop = 2
+        vim.opt_local.softtabstop = 2
+        vim.opt_local.shiftwidth = 2
+        vim.opt_local.expandtab = true
+    end,
+})
 
 -- work config:
 
