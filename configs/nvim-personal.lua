@@ -10,7 +10,7 @@ vim.api.nvim_set_hl(0, "NonText", {bg = "none"})
 -- lsp langs
 
 -- require'lspconfig'.cairo_ls.setup(config)
--- require'lspconfig'.ts_ls.setup(config)
+require'lspconfig'.ts_ls.setup(config)
 require'lspconfig'.rust_analyzer.setup(config)
 require'lspconfig'.gopls.setup(config)
 
