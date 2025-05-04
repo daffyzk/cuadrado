@@ -1,9 +1,9 @@
 # This file contains fish universal variable definitions.
 # VERSION: 3.0
 SETUVAR --export LS_COLORS:di\x3d38\x3b2\x3b0\x3b204\x3b139\x3aex\x3d38\x3b2\x3b251\x3b0\x3b255\x3aln\x3d38\x3b2\x3b0\x3b204\x3b255\x3aow\x3d48\x3b2\x3b255\x3b255\x3b255\x3b38\x3b2\x3b0\x3b0\x3b204
-SETUVAR --export TERM:alacritty
+SETUVAR --export TERM:wezterm
 SETUVAR --export TMPDIR:/home/user/\x2etmp
-SETUVAR __fish_initialized:3400
+SETUVAR __fish_initialized:3800
 SETUVAR fish_color_autosuggestion:brblack
 SETUVAR fish_color_cancel:\x2dr
 SETUVAR fish_color_command:fb00ff
@@ -21,7 +21,7 @@ SETUVAR fish_color_operator:brcyan
 SETUVAR fish_color_param:00cc8b
 SETUVAR fish_color_quote:yellow
 SETUVAR fish_color_redirection:cyan\x1e\x2d\x2dbold
-SETUVAR fish_color_search_match:bryellow\x1e\x2d\x2dbackground\x3dbrblack
+SETUVAR fish_color_search_match:white\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_selection:white\x1e\x2d\x2dbold\x1e\x2d\x2dbackground\x3dbrblack
 SETUVAR fish_color_status:ff0044
 SETUVAR fish_color_user:ff00ae
@@ -32,4 +32,4 @@ SETUVAR fish_pager_color_description:yellow\x1e\x2di
 SETUVAR fish_pager_color_prefix:normal\x1e\x2d\x2dbold\x1e\x2d\x2dunderline
 SETUVAR fish_pager_color_progress:brwhite\x1e\x2d\x2dbackground\x3dcyan
 SETUVAR fish_pager_color_selected_background:\x2dr
-SETUVAR fish_user_paths:/home/user/\x2ecargo/bin\x1e/home/cat/\x2elocal/bin\x1e/home/cat/\x2estarkli/bin\x1e/home/cat/\x2edojo/bin\x1e/home/cat/\x2ecargo/bin\x1e/home/cat/go/bin
+SETUVAR fish_user_paths:/opt/google\x2dcloud\x2dcli/bin\x1e/home/user/\x2elocal/share/solana/install/active_release/bin\x1e/home/user/\x2elocal/bin\x1e/home/user/\x2estarkli/bin\x1e/home/user/\x2ecargo/bin\x1e/home/cat/\x2elocal/bin\x1e/home/cat/\x2estarkli/bin\x1e/home/cat/\x2edojo/bin\x1e/home/cat/\x2ecargo/bin\x1e/home/cat/go/bin\x1e/home/user/\x2efoundry/bin

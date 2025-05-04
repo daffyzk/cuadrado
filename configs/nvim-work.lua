@@ -1,12 +1,10 @@
 -- work config:
 
 -- colors (i like: retrobox, wildcharm, sorbet, ...)
-vim.cmd("colorscheme wildcharm")
-
--- transparency
-vim.api.nvim_set_hl(0, "Normal", {bg = "none"})
-vim.api.nvim_set_hl(0, "NonText", {bg = "none"})
-
+-- my own colorscheme: chill
+vim.cmd("colorscheme visual_studio_code")
+vim.cmd("hi Normal guibg=none")
+vim.cmd("hi NonText guibg=none")
 -- lsp langs
 
 require'lspconfig'.cairo_ls.setup(config)

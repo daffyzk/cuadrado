@@ -1,6 +1,6 @@
 
 # term
-set -Ux TERM "alacritty"
+set -Ux TERM "wezterm"
 
 # setting new tempdir because it doesn't have enough space to build starknet-devnet lmao
 set -Ux TMPDIR "/home/user/.tmp"
@@ -10,6 +10,9 @@ alias ll="ls -a"
 alias nivm="nvim"
 alias v="nvim"
 alias sl="sl -e"
+
+alias qubes-run-terminal="wezterm"
+alias devnet100="starknet-devnet --seed 100 --accounts 1"
 
 # colors
 set -x GIT_CONFIG_COUNT 3
@@ -27,11 +30,16 @@ set -g fish_color_normal "#ff87d9"
 # env variables
 fish_add_path $HOME/go/bin
 fish_add_path $HOME/.cargo/bin
-#fish_add_path $HOME/.local/share/solana/install/active_release/bin
+fish_add_path $HOME/.local/share/solana/install/active_release/bin
+fish_add_path $HOME/.local/bin
+fish_add_path -a $HOME/.foundry/bin
+fish_add_path $HOME/.starkli/bin
+fish_add_path /opt/google-cloud-cli/bin
 
 # cool cairo config memes
+set NVM_DIR "$HOME/.nvm"
 
-fish_add_path $HOME/.starkli/bin
+# fish_add_path $HOME/.starkli/bin
 # fish_add_path $HOME/.dojo/bin
 
 # ASDF memes
@@ -47,4 +55,7 @@ if not contains $_asdf_shims $PATH
 end
 set --erase _asdf_shims
 
-fish_add_path $HOME/.local/bin
+. /home/user/.starkli/env-fish
+
+
+
