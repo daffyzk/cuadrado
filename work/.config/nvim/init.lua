@@ -82,6 +82,53 @@ local handlers = {
     )
   }
 
+local function lsp_jump_in_tab(method)
+  -- get current buffer and cursor position
+  local current_buf = vim.api.nvim_get_current_buf()
+  local cursor = vim.api.nvim_win_get_cursor(0)
+
+  -- perform LSP request ( could be definition or declaration )
+  local result = vim.lsp.buf_request_sync(current_buf, method, {
+    textDocument = { uri = vim.uri_from_bufnr(current_buf) },
+    position = { line = cursor[1] - 1, character = cursor[2] },
+  }, 1000)
+
+  -- get target file from LSP response
+  local target_file = nil
+  for _, client_results in pairs(result or {}) do
+    if client_results.result and client_results.result[1] then
+      local uri = client_results.result[1].targetUri or client_results.result[1].uri
+      target_file = vim.uri_to_fname(uri)
+      break
+    end
+  end
+
+  if not target_file then
+    print("No " .. method:match("([^/]+)$") .. " found")
+    return
+  end
+
+  target_file = vim.fn.expand(target_file):gsub("^~", vim.fn.getenv("HOME"))
+
+  -- check if file is already open in a tab
+  for _, tab in ipairs(vim.api.nvim_list_tabpages()) do
+    for _, win in ipairs(vim.api.nvim_tabpage_list_wins(tab)) do
+      local buf = vim.api.nvim_win_get_buf(win)
+      local bufname = vim.api.nvim_buf_get_name(buf)
+      if bufname == target_file then -- if open focus on the tab
+        vim.api.nvim_set_current_tabpage(tab)
+        vim.lsp.buf[method:match("([^/]+)$")]()
+        return
+      end
+    end
+  end
+
+  -- if not open create new tab
+  vim.cmd("tab split")
+  vim.lsp.buf[method:match("([^/]+)$")]()
+end
+
+
 local on_attach = function(client, bufnr)
     -- vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev vim.diagnostic.open_float end)
     -- vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next vim.diagnostic.open_float end)
@@ -89,10 +136,11 @@ local on_attach = function(client, bufnr)
     vim.keymap.set('n', ']d', vim.diagnostic.goto_next)
     vim.keymap.set('n', '<space>q', vim.diagnostic.setqflist)
     vim.keymap.set('n', '<leader>ca', vim.lsp.buf.code_action)
-    vim.keymap.set('n', 'gD', vim.lsp.buf.declaration, bufopts)
+    vim.keymap.set('n', 'gD', function() 
+        lsp_jump_in_tab("textDocument/declaration") 
+    end, bufopts)
     vim.keymap.set('n', 'gd', function() 
-        vim.cmd('tab split')
-        vim.lsp.buf.definition()
+        lsp_jump_in_tab("textDocument/definition") 
     end, bufopts)
     -- -- vim.keymap.set('n', '', vim.diagnostic.open_float)
     -- client.server_capabilities.semanticTokensProvider = nil
