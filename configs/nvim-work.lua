@@ -3,6 +3,11 @@
 -- colors (i like: retrobox, wildcharm, sorbet, ...)
 -- my own colorscheme: chill
 vim.cmd("colorscheme visual_studio_code")
+-- fixing issue with vscode theme and transparency
+vim.cmd("hi TabLine guifg=LightMagenta guibg=none")
+vim.cmd("hi TabLineSel guifg=LightGreen guibg=none")
+vim.cmd("hi TabLineFill guibg=none")
+-- transparency
 vim.cmd("hi Normal guibg=none")
 vim.cmd("hi NonText guibg=none")
 -- lsp langs
