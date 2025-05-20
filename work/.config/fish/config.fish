@@ -62,4 +62,9 @@ set --erase _asdf_shims
 . /home/user/.starkli/env-fish
 
 
+# noir and proving backend (bbup)
 
+set NARGO_HOME "/home/user/.nargo"
+fish_add_path $NARGO_HOME/bin
+fish_add_path $HOME/.bb
+set -gx PATH /home/user/.bb $PATH

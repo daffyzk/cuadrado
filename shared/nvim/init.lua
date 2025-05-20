@@ -9,7 +9,6 @@ vim.wo.relativenumber = true
 vim.g.mapleader = " "
 
 -- lazy package manager
-
 local lazypath = vim.fn.stdpath("data") .. "/lazy/lazy.nvim"
 if not vim.loop.fs_stat(lazypath) then
 	vim.fn.system({
@@ -24,35 +23,36 @@ end
 vim.opt.rtp:prepend(lazypath)
 
 local plugins = {
-    {"nvim-telescope/telescope.nvim", tag = "0.1.5", dependencies = {"nvim-lua/plenary.nvim"}},
-    {"nvim-treesitter/nvim-treesitter", build = ":TSUpdate"},
-    {"nvim-neo-tree/neo-tree.nvim", branch = "v3.x", 
+    {"nvim-telescope/telescope.nvim", 
+        tag = "0.1.5", 
+        dependencies = {
+            "nvim-lua/plenary.nvim"
+        }
+    },                                  -- fuzzy-find and live-grep files
+    {"nvim-treesitter/nvim-treesitter", 
+        build = ":TSUpdate"},           -- syntax highlighting
+    {"nvim-neo-tree/neo-tree.nvim", 
+        branch = "v3.x", 
         dependencies = {
         "nvim-lua/plenary.nvim",
         "nvim-tree/nvim-web-devicons",
         "MunifTanjim/nui.nvim"
         }
-    },
+    },                                  -- cool side bar for files
     {"neovim/nvim-lspconfig"},
-    {"tpope/vim-fugitive"},
-    {"askfiy/visual_studio_code"}
+    {"hrsh7th/nvim-cmp"},               -- autocomplete
+    {"noir-lang/noir-nvim"},            -- noir lsp
+    {"tpope/vim-fugitive"},             -- git goodness 
+    {"askfiy/visual_studio_code"}       -- vscode theme
 }
 
 local opts = {}
 
+-- lazy package manager
 require("lazy").setup(plugins,opts)
-
--- telescope
-
-local builtin = require("telescope.builtin")
-vim.keymap.set("n", "<C-p>", builtin.find_files, {})
-vim.keymap.set("n", "<leader>fg", builtin.live_grep, {})
-
--- treesitter 
-
-local config = require("nvim-treesitter.configs")
-
-config.setup({
+local telescope = require("telescope.builtin")
+local treesitter = require("nvim-treesitter.configs")
+treesitter.setup({
     ensure_installed = {
         "lua", "rust", "go", "javascript", "typescript", "python"
     },
@@ -60,12 +60,7 @@ config.setup({
     indent = { enable = true },
 })
 
--- neo-tree (hell yeah)
-
-vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
-
 -- LSP memes
-
 local handlers = {
     ["textDocument/publishDiagnostics"] = vim.lsp.with(
         vim.lsp.diagnostic.on_publish_diagnostics, {
@@ -128,7 +123,29 @@ local function lsp_jump_in_tab(method)
   vim.lsp.buf[method:match("([^/]+)$")]()
 end
 
+-- SHORTCUTS -- shortcuts -- SHORTCUTS -- shortcuts -- SHORTCUTS -- 
 
+-- to move in tabs on the default layer
+vim.keymap.set('n', '<Leader>j', vim.cmd.tabfirst)
+vim.keymap.set('n', '<Leader>k', vim.cmd.tabnext) 
+vim.keymap.set('n', '<Leader>l', vim.cmd.tabprev) 
+vim.keymap.set('n', '<Leader>;', vim.cmd.tablast) 
+vim.keymap.set('n', '<Leader>n', function () return ':tabnew ' end, { expr = true })
+
+-- telescope
+vim.keymap.set("n", "<C-p>", telescope.find_files, {})
+vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
+
+-- neo-tree
+vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
+
+-- autocomplete (I would put it here if i had one)
+
+
+-- find and replace (a.k.a. rename)
+vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
+
+-- diagnostics and code actions
 local on_attach = function(client, bufnr)
     -- vim.keymap.set('n', '[d', function() vim.diagnostic.goto_prev vim.diagnostic.open_float end)
     -- vim.keymap.set('n', ']d', function() vim.diagnostic.goto_next vim.diagnostic.open_float end)
@@ -151,6 +168,7 @@ local config = {
     handlers = handlers,
 }
 
+-- my forced 4 tab spacing breaks ts formatting so here's a fix
 vim.api.nvim_create_autocmd("FileType", {
     pattern = "typescript",
     callback = function()
