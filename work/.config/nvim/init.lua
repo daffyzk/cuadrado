@@ -41,6 +41,10 @@ local plugins = {
     },                                  -- cool side bar for files
     {"neovim/nvim-lspconfig"},
     {"hrsh7th/nvim-cmp"},               -- autocomplete
+    {"hrsh7th/cmp-buffer"},
+    {"hrsh7th/cmp-path"},
+    {"hrsh7th/cmp-nvim-lua"},
+    {"hrsh7th/cmp-nvim-lsp"},
     {"noir-lang/noir-nvim"},            -- noir lsp
     {"tpope/vim-fugitive"},             -- git goodness 
     {"askfiy/visual_studio_code"}       -- vscode theme
@@ -52,6 +56,38 @@ local opts = {}
 require("lazy").setup(plugins,opts)
 local telescope = require("telescope.builtin")
 local treesitter = require("nvim-treesitter.configs")
+local cmp = require("cmp")
+
+cmp.setup({
+    mapping = cmp.mapping.preset.insert({}),
+    snippet = {
+        expand = function(args)
+            vim.snippet.expand(args.body)
+            vim.snippet.expand()
+        end,
+    },
+    window = {
+        completion = cmp.config.window.bordered(),
+        documentation = cmp.config.window.bordered(),
+    },
+    sources = {
+        { name = "nvim_lua" },
+        { name = "nvim_lsp" },
+        { name = "path" },
+        { name = "buffer", keyboard_length = 5 },
+    },
+})
+
+-- cmp.setup.cmdline(":", {
+--     mapping = cmp.mapping.preset.cmdline(),
+--     sources = cmp.config.sources({
+--         {name = "path" }
+--     }, {
+--         {name = "cmdline"}
+--        }),
+--     matching = { disallow_symbol_nonprefix_matching = false }
+-- })
+
 treesitter.setup({
     ensure_installed = {
         "lua", "rust", "go", "javascript", "typescript", "python"
