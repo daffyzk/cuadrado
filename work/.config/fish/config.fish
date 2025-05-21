@@ -32,6 +32,9 @@ set -Ux LS_COLORS "di=38;2;0;204;139:ex=38;2;251;0;255:ln=38;2;0;204;255:ow=48;2
 set -g fish_color_normal "#ff87d9"
 
 # env variables
+
+set BROWSER /usr/bin/google-chrome-stable
+
 fish_add_path $HOME/go/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/solana/install/active_release/bin

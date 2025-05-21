@@ -27,6 +27,7 @@ fish_add_path $HOME/go/bin
 fish_add_path $HOME/.cargo/bin
 fish_add_path $HOME/.local/share/solana/install/active_release/bin
 
+set BROWSER /usr/bin/google-chrome-stable
 # cool cairo config memes
 
 # fish_add_path $HOME/.starkli/bin
