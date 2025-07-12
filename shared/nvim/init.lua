@@ -39,6 +39,10 @@ local plugins = {
         "MunifTanjim/nui.nvim"
         }
     },                                  -- cool side bar for files
+    {'akinsho/toggleterm.nvim', 
+        version = "*", 
+        config = true
+    },                                  -- terminal
     {"neovim/nvim-lspconfig"},
     {"hrsh7th/nvim-cmp"},               -- autocomplete
     {"hrsh7th/cmp-buffer"},
@@ -47,7 +51,7 @@ local plugins = {
     {"hrsh7th/cmp-nvim-lsp"},
     {"noir-lang/noir-nvim"},            -- noir lsp
     {"tpope/vim-fugitive"},             -- git goodness 
-    {"askfiy/visual_studio_code"}       -- vscode theme
+    {"askfiy/visual_studio_code"},      -- vscode theme
 }
 
 local opts = {}
@@ -122,6 +126,7 @@ local handlers = {
     )
   }
 
+
 local function lsp_jump_in_tab(method)
   -- get current buffer and cursor position
   local current_buf = vim.api.nvim_get_current_buf()
@@ -179,13 +184,14 @@ vim.keymap.set('n', '<Leader>n', function () return ':tabnew ' end, { expr = tru
 
 -- telescope
 vim.keymap.set("n", "<C-p>", telescope.find_files, {})
+vim.keymap.set("n", "<C-b>", telescope.buffers, {})
 vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
 
 -- neo-tree
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
 
--- autocomplete (I would put it here if i had one)
-
+-- toggle terminal
+vim.keymap.set('n', '<leader>t', '<cmd>ToggleTerm direction=float<cr>', { noremap = true, silent = true })
 
 -- find and replace (a.k.a. rename)
 vim.keymap.set("n", "<leader>r", vim.lsp.buf.rename)
