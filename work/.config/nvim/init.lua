@@ -58,7 +58,6 @@ local opts = {}
 
 -- lazy package manager
 require("lazy").setup(plugins,opts)
-local telescope = require("telescope.builtin")
 local treesitter = require("nvim-treesitter.configs")
 local cmp = require("cmp")
 
@@ -183,9 +182,31 @@ vim.keymap.set('n', '<Leader>;', vim.cmd.tablast)
 vim.keymap.set('n', '<Leader>n', function () return ':tabnew ' end, { expr = true })
 
 -- telescope
-vim.keymap.set("n", "<C-p>", telescope.find_files, {})
-vim.keymap.set("n", "<C-b>", telescope.buffers, {})
-vim.keymap.set("n", "<leader>fg", telescope.live_grep, {})
+local telescope = require("telescope")
+local telescope_btn = require("telescope.builtin")
+
+telescope.setup{
+    defaults = {
+        file_ignore_patterns = {
+            "node_modules/.*",
+            "target/.*",
+            "fonts/.*",
+            "dist/.*",
+            "%.git/.*",
+            "%.gitlab/.*",
+            "%.cache/",
+            "%.next",
+            "%.d.ts",
+            "yarn.lock",
+            "Cargo.lock",
+            "%.tsbuildinfo",
+        }
+    }
+}
+
+vim.keymap.set("n", "<C-p>", telescope_btn.find_files, {})
+vim.keymap.set("n", "<C-b>", telescope_btn.buffers, {})
+vim.keymap.set("n", "<leader>fg", telescope_btn.live_grep, {})
 
 -- neo-tree
 vim.keymap.set("n", "<C-n>", ":Neotree filesystem reveal right<CR>", {})
